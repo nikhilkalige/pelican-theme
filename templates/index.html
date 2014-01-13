@@ -124,74 +124,35 @@
                 </div>
             </div>
             <div class="row display">
-                <article id="c1" class="large-4 columns blogArticle">
-                    <div class="articleImage">
-                        <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/image21.jpg" alt="Container 1">
-                    </div>
-                    <h3>
-                        <a href="#blogSection">Baseball Player</a>
-                    </h3>
-                    <div class="meta">
-                        <p>Posted in -
-                            <a title="View all posts in General News" href="http://nashwp.guuhuu.com/category/general-news/">General News</a>
-                            <br>on February 20th, 2013
-                            <span>
-                                <i class="icon-comment"></i>
-                                <a href="http://nashwp.guuhuu.com/meeting-banksy/#comments">4 Comments</a>
-                            </span>
-                        </p>
-                    </div>
-                    <p>
-                        This would be utter folly, and it was hard to admit that Fogg was such a fool. Sir Francis consented, however, to remain to the end of this terrible drama. The guide led them to …
-                    </p>
-                    <a class="articleButton" href="http://nashwp.guuhuu.com/meeting-banksy/">Read more →</a>
-                </article>
-
-                <article id="c2" class="large-4 columns blogArticle">
-                    <div class="articleImage">
-                        <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/image31.jpg" alt="Container 2">
-                    </div>
-                    <h3>
-                        <a href="#blogSection">Color sketch</a>
-                    </h3>
-                    <div class="meta">
-                        <p>Posted in -
-                            <a title="View all posts in General News" href="http://nashwp.guuhuu.com/category/general-news/">General News</a>
-                            <br>on February 20th, 2013
-                            <span>
-                                <i class="icon-comment"></i>
-                                <a href="http://nashwp.guuhuu.com/meeting-banksy/#comments">4 Comments</a>
-                            </span>
-                        </p>
-                    </div>
-                    <p>
-                        This would be utter folly, and it was hard to admit that Fogg was such a fool. Sir Francis consented, however, to remain to the end of this terrible drama. The guide led them to …
-                    </p>
-                    <a class="articleButton" href="http://nashwp.guuhuu.com/meeting-banksy/">Read more →</a>
-                </article>
-
-                <article id="c3" class="large-4 columns blogArticle">
-                    <div class="articleImage">
-                        <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/image61.jpg" alt="Container 3">
-                    </div>
-                    <h3>
-                        <a href="#blogSection">House MD</a>
-                    </h3>
-                    <div class="meta">
-                        <p>Posted in -
-                            <a title="View all posts in General News" href="http://nashwp.guuhuu.com/category/general-news/">General News</a>
-                            <br>on February 20th, 2013
-                            <span>
-                                <i class="icon-comment"></i>
-                                <a href="http://nashwp.guuhuu.com/meeting-banksy/#comments">4 Comments</a>
-                            </span>
-                        </p>
-                    </div>
-                    <p>
-                        This would be utter folly, and it was hard to admit that Fogg was such a fool. Sir Francis consented, however, to remain to the end of this terrible drama. The guide led them to …
-                    </p>
-                    <a class="articleButton" href="http://nashwp.guuhuu.com/meeting-banksy/">Read more →</a>
-                </article>
+                {% set i = 0 %}
+                {% for article in dates %}
+                    {% if article.thumbnail is defined %}
+                        <article id="c{{i+1}}" class="large-4 columns blogArticle">
+                            <div class="articleImage">
+                                <img src="{{article.thumbnail}}" alt="Container {{i+1}}">
+                            </div>
+                            <h3>
+                                <a href="#blogSection">{{article.title}}</a>
+                            </h3>
+                            <div class="meta">
+                                <p>Posted in -
+                                    <a title="View all posts in General News" href="http://nashwp.guuhuu.com/category/general-news/">{{article.category}}</a>
+                                    <br>on February 20th, 2013
+                                    <span>
+                                        <i class="icon-comment"></i>
+                                        <a href="http://nashwp.guuhuu.com/meeting-banksy/#comments">4 Comments</a>
+                                    </span>
+                                </p>
+                            </div>
+                            <p>
+                                {{article.content}}
+                            </p>
+                            <a class="articleButton" href="http://nashwp.guuhuu.com/meeting-banksy/">Read more →</a>
+                        </article>
+                        {% set i = i + 1 %}
+                    {% endif %}
+                    {% if i > 2 %}{% break %}{% endif %}
+                {% endfor %}
             </div>
         </section>
 
