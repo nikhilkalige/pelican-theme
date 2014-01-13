@@ -140,14 +140,14 @@
                                     <br>on {{ article.date|strftime('%B %d, %Y') }}
                                     <span>
                                         <i class="icon-comment"></i>
-                                        <a href="http://nashwp.guuhuu.com/meeting-banksy/#comments">4 Comments</a>
+                                        <a href="#">0 Comments</a>
                                     </span>
                                 </p>
                             </div>
                             <p>
                                 {{article.content}}
                             </p>
-                            <a class="articleButton" href="http://nashwp.guuhuu.com/meeting-banksy/">Read more →</a>
+                            <a class="articleButton" href="{{ SITEURL }}/{{ article.url }}">Read more →</a>
                         </article>
                         {% set i = i + 1 %}
                     {% endif %}
