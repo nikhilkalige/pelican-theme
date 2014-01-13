@@ -370,3 +370,8 @@
     </div> <!-- Content wrapper -->
     <!-- body content here -->
 {% endblock %}
+{% block javascript %}
+    $('#menu-div').on('click', function() {
+            $('.flyout li > a').toggleClass("click");
+    })
+{% endblock %}
