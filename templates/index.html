@@ -1,0 +1,338 @@
+{% extends "base.html" %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/index.css" />
+{% endblock %}
+{% block content %}
+<div class="menu-hex" style="display: block;">
+        <div id="menu-div" >
+            <div class="hex1"></div>
+            <div class="hex2"></div>
+            <div class="hex3"></div>
+        </div>
+        <ul class="flyout">
+            <li>
+                <a class="click" href="#">HOME</a>
+            </li>
+            <li>
+                <a class="click" href="#">PRODUCTS</a>
+            </li>
+            <li>
+                <a class="click" href="#">BLOG</a>
+            </li>
+            <li>
+                <a class="click" href="#">CONTACT</a>
+            </li>
+        </ul>
+    </div>
+    <!-- Site Overlay -->
+    <div class="site-overlay"></div>
+    <!--<div id="frame1"></div>
+    <div id="frame2"></div>
+    <div id="frame3"></div>
+    <div id="frame4"></div>-->
+    <!-- Content wrapper -->
+    <div id="container">
+
+        <section id="new_title_section">
+            <object id="arduino_anim" class="arduino" data="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/5.svg" type="image/svg+xml"></object>
+        </section>
+        <!-- Title Section
+        ================================================== -->
+        <!--
+        <section id="title_section">
+            <div class="row faceRow">
+                <div class="large-6 columns faceImg">
+                    <img class="face" src="images/bw.svg" alt="You are looking at me">
+                </div>
+                <div class="large-6 columns faceText">
+                    <div class="faceTextBlock">
+                        <p></p>
+                        <h1 class="my_text">Hello, I'm Nikhil.</h1>
+                        <p></p>
+                        <p></p>
+                        <h3 class="my_text">A Technical Enthusiast.</h3>
+                    </div>
+                </div>
+            </div>
+            <a class="next scrollTo" href="#productsSection">
+
+            </a>
+        </section>
+-->
+        <!-- Products Section
+        ================================================== -->
+        <section id="productsSection" class="height_ninty">
+            <div class="row">
+                <div class="row">
+                    <div class="large-1 columns small-centered large-centered icon"></div>
+                </div>
+                <div class="row">
+                    <div class="large-1 columns small-centered large-centered line4"></div>
+                </div>
+                <div class="row">
+                    <div class="large-6 columns small-centered large-centered title">products</div>
+                </div>
+            </div>
+            <div class="row display">
+                <div class="large-8 columns product-left">
+                    <img alt=""  src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/gsm.jpg">
+                </div>
+                <div class="large-4 columns product-right">
+                    <h2>Agrinnovate</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, voluptatibus in soluta at vel maxime perspiciatis itaque laboriosam ratione neque odio iste necessitatibus corporis sapiente inventore tempora dolorum doloribus quidem.
+                    </p>
+                    <p>
+                        View live at <br/>
+                        <a href="http://fueled.com/collective"></a>
+                    </p>
+                </div>
+                <!--<div class="large-5 columns">
+                    <img src="images/product_1.jpg" alt="product1">
+                </div>-->
+            </div>
+            <!--<div class="row height_ninty">
+                <div class="row">
+                    <div class="large-12 columns">
+                        <h3>Products</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <img src="images/gsm.jpg" alt="Project gsm">
+                    </div>
+                    <div class="large-8 columns">
+                        <p>"A GSM based device that can be used to control appliances"</p>
+                    </div>
+                </div>
+            </div>-->
+        </section>
+
+        <!-- Blog Section
+        ================================================== -->
+        <section id="blogSection">
+            <div class="row">
+                <div class="row">
+                    <div class="large-1 columns small-centered large-centered icon"></div>
+                </div>
+                <div class="row">
+                    <div class="large-1 columns small-centered large-centered line4"></div>
+                </div>
+                <div class="row">
+                    <div class="large-6 columns small-centered large-centered title">recent articles</div>
+                </div>
+            </div>
+            <div class="row display">
+                {% set i = 0 %}
+                {% for article in dates %}
+                    {% if article.thumbnail is defined %}
+                        <article id="c{{i+1}}" class="large-4 columns blogArticle">
+                            <div class="articleImage">
+                                <img src="{{article.thumbnail}}" alt="Container {{i+1}}">
+                            </div>
+                            <h3>
+                                <a href="#blogSection">{{article.title}}</a>
+                            </h3>
+                            <div class="meta">
+                                <p>Posted in -
+                                    <a title="View all posts in General News" href="http://nashwp.guuhuu.com/category/general-news/">{{article.category}}</a>
+                                    <br>on {{ article.date|strftime('%B %d, %Y') }}
+                                    <span>
+                                        <i class="icon-comment"></i>
+                                        <a href="#">0 Comments</a>
+                                    </span>
+                                </p>
+                            </div>
+                            <p>
+                                {{article.content}}
+                            </p>
+                            <a class="articleButton" href="{{ SITEURL }}/{{ article.url }}">Read more →</a>
+                        </article>
+                        {% set i = i + 1 %}
+                    {% endif %}
+                    {% if i > 2 %}{% break %}{% endif %}
+                {% endfor %}
+            </div>
+        </section>
+
+        <section id="skill-section">
+            <div class="row">
+                <div class="row">
+                    <div class="large-1 columns small-centered large-centered icon"></div>
+                </div>
+                <div class="row">
+                    <div class="large-1 columns small-centered large-centered line4"></div>
+                </div>
+                <div class="row">
+                    <div class="large-6 columns small-centered large-centered title">skills</div>
+                </div>
+            </div>
+            <div class="row display">
+                <div class="large-12 columns skill">
+                    <p class="skill-text">Electronics System Design + Embedded C/C++</p>
+                    <p>I have also worked on below mentioned areas as a hobby</p>
+                    <p class="skill-text">PHP + CakePHP</p>
+                    <p class="skill-text">Python + Pelican</p>
+                    <p class="skill-text">Bash Scripts</p>
+                    <p class="skill-text">Solidworks</p>
+                    <p class="skill-text">Sketching + Carpentry + Bookbinding + etc..</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about-section">
+            <div class="row">
+                <div class="row">
+                    <div class="large-1 columns small-centered large-centered icon"></div>
+                </div>
+                <div class="row">
+                    <div class="large-1 columns small-centered large-centered line4"></div>
+                </div>
+                <div class="row">
+                    <div class="large-3 columns small-centered large-centered title">about</div>
+                </div>
+            </div>
+            <div class="row display">
+                <div class="row">
+                    <div class="large-12 columns large-centered myself">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, debitis voluptas veniam ea maxime dolor sint enim esse doloremque quo beatae recusandae nesciunt facere voluptates illum porro ab dolores eaque.
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-6 columns edu">
+                        <div class="edu-icon"></div>
+                        <div class="edu-line"></div>
+                        <div class="edu-title">education</div>
+                        <p class="about-content">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, expedita veritatis eveniet ea dolorem quos nemo odit minima ipsum est cumque excepturi blanditiis eligendi repellat ducimus doloremque cum consequatur quia!
+                        </p>
+                    </div>
+                    <div class="large-6 columns work">
+                        <div class="work-icon"></div>
+                        <div class="work-line"></div>
+                        <div class="work-title">experience</div>
+                        <p class="about-content">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, cupiditate commodi vitae alias ullam et itaque nobis doloremque facere laborum ipsum error. Est, molestias atque iure ut molestiae ipsa odio?
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="colophon-section">
+            <div class="row">
+                <div class="row">
+                    <div class="large-1 columns small-centered large-centered icon"></div>
+                </div>
+                <div class="row">
+                    <div class="large-1 columns small-centered large-centered line4"></div>
+                </div>
+                <div class="row">
+                    <div class="large-6 columns small-centered large-centered title">colophon</div>
+                </div>
+            </div>
+            <div class="row display">
+                <div class="large-12 columns colo-text">
+                    <p>This is a static website. Static pages were generated using <a href="http://blog.getpelican.com/" alt="Pelican">Pelican - a python based static site generator</a>. The site is responsive and makes use of <a href="http://foundation.zurb.com/" alt="Foundation 5">Zurb Foundation 5</a> to achieve the same. The site is currently hosted on Github. I'm using Terminal Dosis, Merriweather fonts served by Google. </p>
+                    <p>The complete site was coded using <a href="http://www.sublimetext.com/3" alt="Sublime Text 3">Sublime Text 3</a> and <a href="http://emmet.io/" alt="emmet">Emmet</a> which makes life a lot easier. The complete source is hosted on <a href="http://github.com/nikhilkalige/techdroid" alt="github">github</a>. Feel free to tinker with it.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Footer Section
+        ================================================== -->
+        <footer id="footer">
+            <div class="row">
+                <div class="row">
+                    <div class="large-1 columns small-centered large-centered icon"></div>
+                </div>
+                <div class="row">
+                    <div class="large-1 columns small-centered large-centered line4"></div>
+                </div>
+                <div class="row">
+                    <div class="large-6 columns small-centered large-centered title">contact</div>
+                </div>
+            </div>
+            <div class="row display">
+                <div class="row">
+                    <div class="large-12 columns myself">
+                        <p>
+                            Whether you would like to get extra information on any of my work, ask me about this site or just say hello then I would love to hear from you.
+                        </p>
+                        <a class="mail-button" href="mailto:nikhilkalige@gmail.com">Email nikhilkalige@gmail.com </a>
+                    </div>
+                </div>
+                <div class="row social">
+                    <div class="large-6 columns">
+                        <a href="http://facebook.com/nikhilkalige" class="fb" title="Facebook" target="_blank">
+                            <span class="logo"></span>
+                            <span class="text">facebook.com/nikhilkalige</span>
+                        </a>
+                        <a href="http://twitter.com/nikhilkalige" class="tw" title="Twitter" target="_blank">
+                            <span class="logo"></span>
+                            <span class="text">@nikhilkalige</span>
+                        </a>
+                    </div>
+                    <div class="large-6 columns">
+                        <a href="http://linkedin.com/nikhilkalige" class="ln" title="Linkedin" target="_blank">
+                            <span class="logo"></span>
+                            <span class="text">linkedin://nikhilkalige</span>
+                        </a>
+                        <a href="http://github.com/nikhilkalige" class="gb" title="Github" target="_blank">
+                            <span class="logo"></span>
+                            <span class="text">nikhilkalige@github</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!---<div class="row">
+                <div class="large-12 columns show-for-small">
+                    <h4>CONNECT</h4>
+                    <div class="social">
+                        <a href="http://github.com/nikhilkalige" class="gb" title="Github" target="_blank"></a>
+                        <a href="http://facebook.com/nikhilkalige" class="fb" title="Facebook" target="_blank"></a>
+                        <a href="http://twitter.com/nikhilkalige" class="tw" title="Twitter" target="_blank"></a>
+                        <a href="http://linkedin.com/nikhilkalige" class="ln" title="Linkedin" target="_blank"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-12 centered columns" style="text-align: center;">
+                    <p class="contact">Contact me by </p>
+                    <a class="email" href="mailto:nikhilkalige@gmail.com" class="email" title="Email" target="_blank"></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-12 centered columns">
+                    <p class="colophon">This site was crafted using Zurb Foundation and Hyde - a python based static site generator.</p>
+                </div>
+            </div>
+
+            <div id="regards">
+                <div class="row">
+                    <div class="twelve columns">
+                        <p class="regards">Thankyou for visiting</p>
+                    </div>
+                </div>
+            </div>-->
+    <!--
+            <div id="copyright">
+                <div class="row">
+                    <div class="twelve columns">
+
+                        <p class="text-center">Copyright &copy; Nikhil Kalige 2013<br/>
+                    </div>
+                </div>
+            </div>-->
+        </footer>
+    </div> <!-- Content wrapper -->
+    <!-- body content here -->
+{% endblock %}
+{% block javascript %}
+    $('#menu-div').on('click', function() {
+            $('.flyout li > a').toggleClass("click");
+    })
+{% endblock %}
