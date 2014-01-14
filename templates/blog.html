@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 
 {% block css %}
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/blog.css" />
@@ -33,4 +33,18 @@
 		</div>
 	</div>
 </nav>
+<section class="row" id="blog-posts">
+	<h1 id="blog"><span>Blog</span></h1>
+	<article class="row post">
+		<h2>
+			<a href="#" rel="fade" title="VentureBeat – Fuck You!">Arduino SIM 900</a>
+		</h2>
+		<small class="timestamp">
+			in Arduino, 12 Sep 2013
+		</small>
+		<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, eum, quia perferendis incidunt id adipisci voluptatem error explicabo fugit delectus laudantium accusantium blanditiis illo sed libero ducimus neque similique architecto.
+		</p>
+	</article>
+{% include "footer.html" %}
 {% endblock %}
