@@ -4,35 +4,7 @@
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/blog.css" />
 {% endblock %}
 {% block content %}
-	<nav id="navig" class="row hide-for-small">
-		<div class="large-12 columns large-centered">
-			<div class="large-4 columns">
-				<ul class=" ">
-					<li class="left">
-						<a href="#">home</a>
-					</li>
-					<li class="left">
-						<a href="#">work</a>
-					</li>
-				</ul>
-			</div>
-			<div class="large-4 columns text-center">
-				<a href="#">
-					<img class="logo1" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/blogman.png" alt="">
-				</a>
-			</div>
-			<div class="large-4 columns">
-				<ul class="left-nav">
-					<li class="left">
-						<a href="#">blog</a>
-					</li>
-					<li class="left">
-						<a href="#">contact</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	{% include "navigation.html" %}
 	<section class="row" id="blog-posts">
 		<h1 id="blog"><span>Blog</span></h1>
 		{% for article in articles_page.object_list %}

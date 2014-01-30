@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/post.css" />
+{% endblock %}
+{% block content %}
+    {% include "navigation.html" %}
+    <article class="row post">
+        <h1 id="blog"><span>{{article.title}}</span></h1>
+        <small class="timestamp">
+            in <a href="{{article.category.url}}">{{article.category}}</a>, {{ article.date|strftime('%d %b %Y') }}
+        </small>
+        {{article.content}}
+    </article>
+    {% include "footer.html" %}
+{% endblock %}
