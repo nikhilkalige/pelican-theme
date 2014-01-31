@@ -6,7 +6,7 @@
 {% block content %}
 	{% include "navigation.html" %}
 	<section class="row" id="blog-posts">
-		<h1 id="blog"><span>Blog</span></h1>
+		<h1 id="blog"><span>{% block title %}{% endblock %}</span></h1>
 		{% for article in articles_page.object_list %}
 			<article class="row post">
 				<h2>
@@ -18,7 +18,7 @@
 					</a>
 				</h2>
 				<small class="timestamp">
-					in <a href="{{article.category.url}}">{{article.category}}</a>, {{ article.date|strftime('%d %b %Y') }}
+					in <a href="{{ SITEURL }}/{{article.category.url}}">{{article.category}}</a>, {{ article.date|strftime('%d %b %Y') }}
 				</small>
 				<p>
 					{{article.summary}}
