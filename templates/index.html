@@ -12,16 +12,16 @@
         </div>
         <ul class="flyout">
             <li>
-                <a class="click" href="#">HOME</a>
+                <a class="click" href="#container">HOME</a>
             </li>
             <li>
-                <a class="click" href="#">PRODUCTS</a>
+                <a class="click" href="#productsSection">PRODUCTS</a>
             </li>
             <li>
-                <a class="click" href="#">BLOG</a>
+                <a class="click" href="{{SITE_URL}}/blog">BLOG</a>
             </li>
             <li>
-                <a class="click" href="#">CONTACT</a>
+                <a class="click" href="#footer">CONTACT</a>
             </li>
         </ul>
     </div>
@@ -201,7 +201,10 @@
     <!-- body content here -->
 {% endblock %}
 {% block javascript %}
-    $('#menu-div').on('click', function() {
-            $('.flyout li > a').toggleClass("click");
-    })
+    <script src="{{SITE_URL}}/{{ THEME_STATIC_DIR }}/js/main.js"></script>
+    <script>
+        $('#menu-div').on('click', function() {
+                $('.flyout li > a').toggleClass("click");
+        })
+    </script>
 {% endblock %}
