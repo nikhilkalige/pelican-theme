@@ -38,14 +38,11 @@
             </div>
             <div class="row display">
                 <div class="product-desc">
-                    <h2>Agrinnovate</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, voluptatibus in soluta at vel maxime perspiciatis itaque laboriosam ratione neque odio iste necessitatibus corporis sapiente inventore tempora dolorum doloribus quidem.
-                    </p>
-                    <p>
-                        View live at <br/>
-                        <a href="#"></a>
-                    </p>
+                {% for key, article in page.content_list.iteritems() %}
+                    {% if key == 'product' %}
+                        {{article}}
+                    {% endif %}
+                {% endfor %}
                 </div>
                 <div class="product-img">
                     <img alt=""  src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/gsm.jpg">
@@ -107,13 +104,12 @@
             </div>
             <div class="row display">
                 <div class="large-12 columns skill">
-                    <p class="skill-text">Electronics System Design + Embedded C/C++</p>
-                    <p>I have also worked on below mentioned areas as a hobby</p>
-                    <p class="skill-text">PHP + CakePHP</p>
-                    <p class="skill-text">Python + Pelican</p>
-                    <p class="skill-text">Bash Scripts</p>
-                    <p class="skill-text">Solidworks</p>
-                    <p class="skill-text">Sketching + Carpentry + Bookbinding + etc..</p>
+                    {% for key, article in page.content_list.iteritems() %}
+                        {% if key == 'skill' %}
+                            {{ article }}
+                        {% endif %}
+                    {% endfor %}
+
                 </div>
             </div>
         </section>
@@ -125,16 +121,22 @@
             </div>
             <div class="row display">
                 <div class="large-12 columns large-centered myself">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, debitis voluptas veniam ea maxime dolor sint enim esse doloremque quo beatae recusandae nesciunt facere voluptates illum porro ab dolores eaque.
-                    </p>
+                    {% for key, article in page.content_list.iteritems() %}
+                        {% if key == 'about' %}
+                            {{ article }}
+                        {% endif %}
+                    {% endfor %}
                 </div>
                 <div class="large-6 columns" id="edu">
                     <div class="icon"></div>
                     <div class="line"></div>
                     <div class="title">education</div>
                     <p class="about-content">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, expedita veritatis eveniet ea dolorem quos nemo odit minima ipsum est cumque excepturi blanditiis eligendi repellat ducimus doloremque cum consequatur quia!
+                        {% for key, article in page.content_list.iteritems() %}
+                            {% if key == 'education' %}
+                                {{ article|striptags }}
+                            {% endif %}
+                        {% endfor %}
                     </p>
                 </div>
                 <div class="large-6 columns" id="work">
@@ -142,7 +144,11 @@
                     <div class="line"></div>
                     <div class="title">experience</div>
                     <p class="about-content">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, cupiditate commodi vitae alias ullam et itaque nobis doloremque facere laborum ipsum error. Est, molestias atque iure ut molestiae ipsa odio?
+                        {% for key, article in page.content_list.iteritems() %}
+                            {% if key == 'work' %}
+                                {{ article|striptags }}
+                            {% endif %}
+                        {% endfor %}
                     </p>
                 </div>
             </div>
@@ -155,8 +161,11 @@
             </div>
             <div class="row display">
                 <div class="large-12 columns">
-                    <p>This is a static website. Static pages were generated using <a href="http://blog.getpelican.com/" alt="Pelican">Pelican - a python based static site generator</a>. The site is responsive and makes use of <a href="http://foundation.zurb.com/" alt="Foundation 5">Zurb Foundation 5</a> to achieve the same. The site is currently hosted on Github. I'm using Terminal Dosis, Merriweather fonts served by Google. </p>
-                    <p>The complete site was coded using <a href="http://www.sublimetext.com/3" alt="Sublime Text 3">Sublime Text 3</a> and <a href="http://emmet.io/" alt="emmet">Emmet</a> which makes life a lot easier. The complete source is hosted on <a href="http://github.com/nikhilkalige/techdroid" alt="github">github</a>. Feel free to tinker with it.</p>
+                    {% for key, article in page.content_list.iteritems() %}
+                        {% if key == 'colophon' %}
+                            {{ article }}
+                        {% endif %}
+                    {% endfor %}
                 </div>
             </div>
         </section>
