@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--[if IE 8]>               <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Techdruid</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Terminal+Dosis:400,300,200,500,600,700,800" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Chelsea+Market' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,300,300italic,400italic,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather+Sans:400,300,300italic,400italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    {% block css %}
+    {% endblock %}
+
+    <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/modernizr.js"></script>
+</head>
+<body>
+    {% block content %}
+    {% endblock %}
+
+    <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.min.js"></script>
+    <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/foundation.min.js"></script>
+
+    <!-- Custom Javascript files -->
+    {% block javascript %}
+    {% endblock %}
+    <script>
+        $(document).foundation();
+    </script>
+</body>
+</html>

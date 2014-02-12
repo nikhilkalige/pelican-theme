@@ -1,0 +1,28 @@
+﻿<footer class="row">
+    <h3 id="category"><span>Categories</span></h3>
+	<div class="text-center">
+            <ul>
+			{% for category,n in categories %}
+			    <li>
+			    	<a
+			    		href="{{SITEURL}}/{{ category.url }}">
+			    		{{category}}&nbsp;({{ n|count }})
+			    	</a>
+			    </li>
+			{% endfor %}
+		</ul>
+	</div>
+	<h3 id="tags"><span>Tags</span></h3>
+	<div class="text-center">
+            <ul>
+			{% for tag,n in tags %}
+			    <li>
+			    	<a
+			    		href="{{SITEURL}}/{{ tag.url }}">
+			    		{{tag}}&nbsp;({{ n|count }})
+			    	</a>
+			    </li>
+			{% endfor %}
+		</ul>
+	</div>
+</footer>
