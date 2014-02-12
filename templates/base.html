@@ -21,13 +21,10 @@
     {% endblock %}
 
     <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.min.js"></script>
-    <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/foundation.min.js"></script>
-
-    <!-- Custom Javascript files -->
+    <script>
+        $(document).ready();
+    </script>
     {% block javascript %}
     {% endblock %}
-    <script>
-        $(document).foundation();
-    </script>
 </body>
 </html>
