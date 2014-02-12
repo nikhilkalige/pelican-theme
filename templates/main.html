@@ -1,0 +1,219 @@
+{% extends "base.html" %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/index.css" />
+{% endblock %}
+{% block content %}
+<div class="menu-hex" style="display: block;">
+        <div id="menu-div" >
+            <div class="hex1"></div>
+            <div class="hex2"></div>
+            <div class="hex3"></div>
+        </div>
+        <ul class="flyout">
+            <li>
+                <a class="click" href="#container">HOME</a>
+            </li>
+            <li>
+                <a class="click" href="#productsSection">PRODUCTS</a>
+            </li>
+            <li>
+                <a class="click" href="{{SITE_URL}}/blog">BLOG</a>
+            </li>
+            <li>
+                <a class="click" href="#footer">CONTACT</a>
+            </li>
+        </ul>
+    </div>
+    <div class="site-overlay"></div>
+    <div id="container">
+        <section id="new_title_section">
+            <object id="arduino_anim" class="arduino" data="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/5.svg" type="image/svg+xml"></object>
+        </section>
+        <section id="productsSection" class="height_ninty">
+            <div class="row">
+                <div class="large-1 columns small-centered large-centered icon"></div>
+                <div class="large-1 columns small-centered large-centered line"></div>
+                <div class="large-6 columns small-centered large-centered title">products</div>
+            </div>
+            <div class="row display">
+                {% for key, article in page.article_list.iteritems() %}
+                    {% if key == 'product' %}
+                        <div class="product-desc">
+                            {{article.content}}
+                        </div>
+                        <div class="product-img">
+                            <img src="{{ SITE_URL }}/images/{{ article.thumbnail }}" alt="product">
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+        <section id="blogSection">
+            <div class="row">
+                <div class="large-1 columns small-centered large-centered icon"></div>
+                <div class="large-1 columns small-centered large-centered line"></div>
+                <div class="large-6 columns small-centered large-centered title">recent articles</div>
+            </div>
+            <div class="row display">
+                {% set i = 0 %}
+                {% for article in dates %}
+                    {% if article.thumbnail is defined %}
+                        <article class="row">
+                            <div class="hide-for-small medium-7 medium-offset-5 large-7 large-offset-5 columns">
+                                 <h3>
+                                    <a href="#blogSection">{{article.title}}</a>
+                                </h3>
+                            </div>
+                            <div class="medium-5 large-5 columns">
+                                <img src="{{article.thumbnail}}" alt="Container {{i+1}}">
+                            </div>
+                            <div class="show-for-small small-12 columns">
+                                <h3>
+                                    <a href="#blogSection">{{article.title}}</a>
+                                </h3>
+                            </div>
+                            <div class="medium-7 large-7 columns">
+                                <p class="meta">Posted in -
+                                    <a title="View all posts in General News" href="{{ SITEURL }}">{{article.category}}</a>
+                                    <br>on {{ article.date|strftime('%B %d, %Y') }}
+                                    <span>
+                                        <i class="icon-comment"></i>
+                                        <a href="#">0 Comments</a>
+                                    </span>
+                                </p>
+                                <p>
+                                    {{article.summary}}...
+                                </p>
+                                <span class="articleButton">
+                                    <a class="" href="{{ SITEURL }}/{{ article.url }}">read more</a>
+                                </span>
+                            </div>
+                        </article>
+                        {% set i = i + 1 %}
+                    {% endif %}
+                    {% if i > 2 %}{% break %}{% endif %}
+                {% endfor %}
+            </div>
+        </section>
+        <section id="skill-section">
+            <div class="row">
+                <div class="large-1 columns small-centered large-centered icon"></div>
+                <div class="large-1 columns small-centered large-centered line"></div>
+                <div class="large-6 columns small-centered large-centered title">skills</div>
+            </div>
+            <div class="row display">
+                <div class="large-12 columns skill">
+                    {% for key, article in page.article_list.iteritems() %}
+                        {% if key == 'skill' %}
+                            {{ article.content }}
+                        {% endif %}
+                    {% endfor %}
+
+                </div>
+            </div>
+        </section>
+        <section id="about-section">
+            <div class="row">
+                <div class="large-1 columns small-centered large-centered icon"></div>
+                <div class="large-1 columns small-centered large-centered line"></div>
+                <div class="large-3 columns small-centered large-centered title">about</div>
+            </div>
+            <div class="row display">
+                <div class="large-12 columns large-centered myself">
+                    {% for key, article in page.article_list.iteritems() %}
+                        {% if key == 'about' %}
+                            {{ article.content }}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="large-6 columns" id="edu">
+                    <div class="icon"></div>
+                    <div class="line"></div>
+                    <div class="title">education</div>
+                    <p class="about-content">
+                        {% for key, article in page.article_list.iteritems() %}
+                            {% if key == 'education' %}
+                                {{ article.content|striptags }}
+                            {% endif %}
+                        {% endfor %}
+                    </p>
+                </div>
+                <div class="large-6 columns" id="work">
+                    <div class="icon"></div>
+                    <div class="line"></div>
+                    <div class="title">experience</div>
+                    <p class="about-content">
+                        {% for key, article in page.article_list.iteritems() %}
+                            {% if key == 'work' %}
+                                {{ article.content|striptags }}
+                            {% endif %}
+                        {% endfor %}
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section id="colophon-section">
+            <div class="row">
+                <div class="large-1 columns small-centered large-centered icon"></div>
+                <div class="large-1 columns small-centered large-centered line"></div>
+                <div class="large-6 columns small-centered large-centered title">colophon</div>
+            </div>
+            <div class="row display">
+                <div class="large-12 columns">
+                    {% for key, article in page.article_list.iteritems() %}
+                        {% if key == 'colophon' %}
+                            {{ article.content }}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <footer id="footer">
+            <div class="row">
+                <div class="large-1 columns small-centered large-centered icon"></div>
+                <div class="large-1 columns small-centered large-centered line"></div>
+                <div class="large-6 columns small-centered large-centered title">contact</div>
+            </div>
+            <div class="row display">
+                <div class="large-12 columns myself">
+                    <p>
+                        Whether you would like to get extra information on any of my work, ask me about this site or just say hello then I would love to hear from you.
+                    </p>
+                    <a class="mail-button" href="mailto:nikhilkalige@gmail.com">Email nikhilkalige@gmail.com </a>
+                </div>
+                <div class="social">
+                    <div class="large-6 columns">
+                        <a href="http://facebook.com/nikhilkalige" class="fb" title="Facebook" target="_blank">
+                            <span class="logo"></span>
+                            <span class="text">facebook.com/nikhilkalige</span>
+                        </a>
+                        <a href="http://twitter.com/nikhilkalige" class="tw" title="Twitter" target="_blank">
+                            <span class="logo"></span>
+                            <span class="text">@nikhilkalige</span>
+                        </a>
+                    </div>
+                    <div class="large-6 columns">
+                        <a href="http://linkedin.com/nikhilkalige" class="ln" title="Linkedin" target="_blank">
+                            <span class="logo"></span>
+                            <span class="text">linkedin://nikhilkalige</span>
+                        </a>
+                        <a href="http://github.com/nikhilkalige" class="gb" title="Github" target="_blank">
+                            <span class="logo"></span>
+                            <span class="text">nikhilkalige@github</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div> <!-- Content wrapper -->
+    <!-- body content here -->
+{% endblock %}
+{% block javascript %}
+    <script src="{{SITE_URL}}/{{ THEME_STATIC_DIR }}/js/main.js"></script>
+    <script>
+        $('#menu-div').on('click', function() {
+                $('.flyout li > a').toggleClass("click");
+        })
+    </script>
+{% endblock %}

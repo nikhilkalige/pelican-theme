@@ -1,0 +1,31 @@
+﻿{% extends "base.html" %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/blog.css" />
+{% endblock %}
+{% block content %}
+	{% include "navigation.html" %}
+	<section class="row" id="blog-posts">
+		<h1 id="blog"><span>{% block title %}{% endblock %}</span></h1>
+		{% for article in articles_page.object_list %}
+			<article class="row post">
+				<h2>
+					<a
+						href="{{ SITEURL }}/{{ article.url }}"
+						rel="fade"
+						title="{{ article.title|striptags }}">
+						{{ article.title}}
+					</a>
+				</h2>
+				<small class="timestamp">
+					in <a href="{{ SITEURL }}/{{article.category.url}}">{{article.category}}</a>, {{ article.date|strftime('%d %b %Y') }}
+				</small>
+				<p>
+					{{article.summary}}
+				</p>
+			</article>
+		{% endfor %}
+	</section>
+	{% include "pagination.html" %}
+	{% include "footer.html" %}
+{% endblock %}
