@@ -134,7 +134,7 @@
                     <p class="about-content">
                         {% for key, article in page.article_list.iteritems() %}
                             {% if key == 'education' %}
-                                {{ article.content|striptags }}
+                                {{ article.content }}
                             {% endif %}
                         {% endfor %}
                     </p>
@@ -146,7 +146,7 @@
                     <p class="about-content">
                         {% for key, article in page.article_list.iteritems() %}
                             {% if key == 'work' %}
-                                {{ article.content|striptags }}
+                                {{ article.content }}
                             {% endif %}
                         {% endfor %}
                     </p>
